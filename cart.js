@@ -13,17 +13,18 @@ let createListElement = () =>{
 	input_val.value = "";
 } 
 
-btn_add.addEventListener("click", () =>{
+let AfterButtonClicked = () =>{
 	if(inputLength() != ''){
 		createListElement();
 	}
-})
+}
 
-input_val.addEventListener("keypress", (e) =>{
-	if(input_val.value != '' && e.keyCode === 13){
-		var li = document.createElement('li');
-		li.appendChild(document.createTextNode(input_val.value));
-		ul.appendChild(li);
-		input_val.value = "";
-	}
-})
+let AfterKeyPressed = (e) =>{
+	if(inputLength() != '' && e.keyCode === 13){
+		createListElement();
+	}	
+}
+
+btn_add.addEventListener("click", AfterButtonClicked);
+
+input_val.addEventListener("keypress", AfterKeyPressed);
